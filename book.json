@@ -1,0 +1,11 @@
+{
+    "title": "事件中心教程",
+    "author": "决明",
+    "plugins": ["insert-logo"],
+    "pluginsConfig": {
+        "insert-logo": {
+            "url": "/images/logo-small.png",
+            "style": "background: none;"
+        }
+    }
+}
