@@ -7,6 +7,7 @@
     * [使用注解](introduction/annotationConfig.md)
     * [加强事件运行容器](introduction/strengthenConfig.md)
     * [远程传送事件](introduction/remoteConfig.md)
+    * [加强事件的传送](introduction/strengthenRemoteConfig.md)
 * [功能介绍](features/README.md)
 * [配置和示例](examples/README.md)
 * [开发](develop/README.md)
