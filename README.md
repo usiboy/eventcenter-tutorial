@@ -22,8 +22,56 @@
 
 ## 什么是事件中心？
 
- * 如果您正在使用DDD设计系统，其中的领域事件的实现完全可以使用事件中心来代替
+ * 如果您正在使用DDD设计系统，其中的领域事件的设计和实现完全可以使用事件中心来代替，在设计上不仅提供了相应的模式，在实现上提供了强大的组件支持，也可以自定义组件，能够和其他消息服务对接，例如RocketMQ、ActiveMQ等等
  * 如果您的系统正在由单体WEB垂直切分成多个模块时，需要设计好系统与系统间的界限上下文，其中系统内的领域的事件可以使用事件中心来完成
  * 如果您需要一个具备高可用，服务自治性强的事件传递中间件，事件中心可以帮助你达到目标
 
 事件中心包含哪些功能？请查看[功能介绍](features/README.md)
+
+## 事件中心和消息中间件有什么区别？
+
+大多数人会把事件中心看成是一个具体的技术工具，这个看法会比较片面，事件中心的设计理念有点类似Spring框架，Spring最核心的思想是在于他的IOC容器，并随之进行扩张和适配各种强大的组件；事件中心基于领域事件的概念实现了一个功能相对健全的建模工具，同时也提供一套核心的框架，并支持各种技术组件。
+
+如果直接使用消息队列服务作为事件的载体，可能对业务代码产生一定的入侵性，如下是RocketMQ的生产端的代码:
+```java
+Message msg = new Message("Jodie_topic_1023",
+                    "TagA",
+                    "OrderID188",
+                    "Hello world".getBytes(RemotingHelper.DEFAULT_CHARSET));
+producer.send(msg, new SendCallback() {
+    @Override
+    public void onSuccess(SendResult sendResult) {
+        System.out.printf("%-10d OK %s %n", index, sendResult.getMsgId());
+    }
+
+    @Override
+    public void onException(Throwable e) {
+        System.out.printf("%-10d Exception %s %n", index, e);
+        e.printStackTrace();
+    }
+});
+```
+
+对于事件中心则不需要这么麻烦，如下：
+```java
+eventcenter.fireEvent(this, "trade.created", "1000001");
+```
+
+如下是基于注解：
+```java
+class Trade {
+    
+    /**
+    * 注解方式，会自动将方法的参数设置到事件的参数中，并将返回对象设置到result中 
+    */
+    @EventPoint("trade.created")
+    public Trade create(String tid){
+        // .....
+        return trade;
+    }
+}
+```
+
+是不是很简单，这完全不需要开发者去关心事件是如何消费、如何传播到消费端的？到了这一层面将会有相应的实现完善事件的传播和可靠性。对于软件设计者来看，能够将更多的时间和注意力放在领域事件的设计层面上，而不需要考虑底层的技术实现。
+
+事件中心提供了容器的接口，可以接入各种消息队列服务，同时事件中心本身也提供了优秀的实现容器，足以应对大型的应用。
