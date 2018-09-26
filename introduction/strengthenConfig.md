@@ -17,7 +17,7 @@
 	<context:component-scan base-package="eventcenter.tutorial.section1_4"></context:component-scan>
 
 	<!-- 这个是最基础的配置，默认初始化DefaultEventCenter实例 -->
-	<conf xmlns="http://code.eventcenter.com/schema/ec" xsi:schemaLocation="http://code.eventcenter.com/schema/ec http://code.eventcenter.com/schema/ec/eventcenter.xsd">
+	<conf xmlns="http://code.eventcenter.io/schema/ec" xsi:schemaLocation="http://code.eventcenter.io/schema/ec http://code.eventcenter.io/schema/ec/eventcenter.xsd">
 		<queue>
 			<!--
 			 corePoolSize		初始化运行容器中的线程池的最小活跃线程数

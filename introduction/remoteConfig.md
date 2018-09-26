@@ -21,7 +21,7 @@
 
 	<!-- 这个是最基础的配置，默认初始化DefaultEventCenter实例 -->
 	<!-- group是用来确定不同事件中心的节点的分组的标示，未来在发现事件中心消费点时，事件只会在同一个group下的节点中进行传播 -->
-	<conf group="example" xmlns="http://code.eventcenter.com/schema/ec" xsi:schemaLocation="http://code.eventcenter.com/schema/ec http://code.eventcenter.com/schema/ec/eventcenter.xsd">
+	<conf group="example" xmlns="http://code.eventcenter.io/schema/ec" xsi:schemaLocation="http://code.eventcenter.io/schema/ec http://code.eventcenter.io/schema/ec/eventcenter.xsd">
 		<!-- dubbo节点需要配置dubbo的application、registry和protocol基本信息，由于这个节点不需要接收其他模块的事件，所以不需要设置protocol前缀的属性 -->
 		<dubbo registryProtocol="multicast" registryAddress="224.5.6.7:1234" applicationName="example-boss" applicationOwner="jueming">
 			<dubboPublish>
@@ -56,7 +56,7 @@
 
 	<!-- 这个是最基础的配置，默认初始化DefaultEventCenter实例 -->
 	<!-- group是用来确定不同事件中心的节点的分组的标示，未来在发现事件中心消费点时，事件只会在同一个group下的节点中进行传播 -->
-	<conf group="example" xmlns="http://code.eventcenter.com/schema/ec" xsi:schemaLocation="http://code.eventcenter.com/schema/ec http://code.eventcenter.com/schema/ec/eventcenter.xsd">
+	<conf group="example" xmlns="http://code.eventcenter.io/schema/ec" xsi:schemaLocation="http://code.eventcenter.io/schema/ec http://code.eventcenter.io/schema/ec/eventcenter.xsd">
 		<!-- dubbo节点需要配置dubbo的application、registry和protocol基本信息，由于这个节点不需要接收其他模块的事件，所以不需要设置protocol前缀的属性 -->
 		<dubbo registryProtocol="multicast" registryAddress="224.5.6.7:1234" applicationName="example-manager" applicationOwner="jueming">
 			<!-- 这个点主要是manager监听老板模块的boss.task.submit，所以创建一个dubboSubscribe节点，并打上版本，boss模块的publish的version会与之对应 -->

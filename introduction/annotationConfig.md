@@ -70,7 +70,7 @@ public class ManagerEventListener implements EventListener {
 	<aop:aspectj-autoproxy proxy-target-class="true" />
 
 	<!-- 这个是最基础的配置，默认初始化DefaultEventCenter实例 -->
-	<conf xmlns="http://code.eventcenter.com/schema/ec" xsi:schemaLocation="http://code.eventcenter.com/schema/ec http://code.eventcenter.com/schema/ec/eventcenter.xsd">
+	<conf xmlns="http://code.eventcenter.io/schema/ec" xsi:schemaLocation="http://code.eventcenter.io/schema/ec http://code.eventcenter.io/schema/ec/eventcenter.xsd">
 
 	</conf>
 </beans>

@@ -2,7 +2,7 @@
 
 前面章节构建事件中心使用的是EventCenterBuilder，并手动注入到构建器中，EventCenterBuilder支持函数式编程，在构建复杂配置的事件中心时，具有较高的可读性和维护性，同时也能够较容易的支持Spring的Configuration的Bean的管理。
 
-事件中心框架基于Spring的schema实现了一套配置管理，其xsi的值为: http://code.eventcenter.com/schema/ec/eventcenter.xsd 。
+事件中心框架基于Spring的schema实现了一套配置管理，其xsi的值为: http://code.eventcenter.io/schema/ec/eventcenter.xsd 。
 
 配置如下：
 ```xml
@@ -16,7 +16,7 @@
 	<context:component-scan base-package="eventcenter.tutorial.section1_2"></context:component-scan>
 
 	<!-- 这个是最基础的配置，默认初始化DefaultEventCenter实例 -->
-	<conf xmlns="http://code.eventcenter.com/schema/ec" xsi:schemaLocation="http://code.eventcenter.com/schema/ec http://code.eventcenter.com/schema/ec/eventcenter.xsd">
+	<conf xmlns="http://code.eventcenter.io/schema/ec" xsi:schemaLocation="http://code.eventcenter.io/schema/ec http://code.eventcenter.io/schema/ec/eventcenter.xsd">
 
 	</conf>
 </beans>

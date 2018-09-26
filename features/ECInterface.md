@@ -68,7 +68,7 @@ public interface EventCenter {
        xsi:schemaLocation="http://www.springframework.org/schema/beans p http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 ​
     <!-- 这个是最基础的配置，默认初始化DefaultEventCenter实例 -->
-    <conf xmlns="http://code.eventcenter.com/schema/ec" xsi:schemaLocation="http://code.eventcenter.com/schema/ec http://code.eventcenter.com/schema/ec/eventcenter.xsd">
+    <conf xmlns="http://code.eventcenter.io/schema/ec" xsi:schemaLocation="http://code.eventcenter.io/schema/ec http://code.eventcenter.io/schema/ec/eventcenter.xsd">
 ​
     </conf>
 </beans>
@@ -170,7 +170,7 @@ public class SimpleEventListener implements EventListener {
     <context:component-scan base-package="eventcenter.listeners"></context:component-scan>
 
     <!-- 这个是最基础的配置，默认初始化DefaultEventCenter实例 -->
-    <conf xmlns="http://code.eventcenter.com/schema/ec" xsi:schemaLocation="http://code.eventcenter.com/schema/ec http://code.eventcenter.com/schema/ec/eventcenter.xsd">
+    <conf xmlns="http://code.eventcenter.io/schema/ec" xsi:schemaLocation="http://code.eventcenter.io/schema/ec http://code.eventcenter.io/schema/ec/eventcenter.xsd">
 ​
     </conf>
 </beans>
